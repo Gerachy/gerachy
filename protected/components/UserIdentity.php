@@ -21,25 +21,23 @@ class UserIdentity extends CUserIdentity
 		
 		$emailValidator = new CEmailValidator();	// email验证器
 		if($emailValidator->validateValue($username)) // 如果用户名是email
-			$user = SysUser::model()->find('LOWER(email)=?',array($username));	// 根据email查找用户
+			$user = User::model()->find('LOWER(email)=?',array($username));	// 根据email查找用户
 		else
-			$user=SysUser::model()->find('LOWER(name)=?',array($username));		// 根据name查找用户
+			$user=User::model()->find('LOWER(name)=?',array($username));		// 根据name查找用户
 		
 		if($user===null)	// 如果用户为空
 			$this->errorCode=self::ERROR_USERNAME_INVALID;	// 返回用户名称错误
 		elseif(! $user->validatePassword($this->password)) 	// 如果密码验证失败
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;	// 返回密码错误
 		else{		// 通过验证
+			$this->setState('id', $user->id);
+			$this->setState('name', $user->name);
+			$this->setState('email', $user->email);
 			
-			//	设置是否为管理员
-			/* if(SysAuthAssignment::model()->find('userid=:userid',array('userid'=>$user->id))){
-				$this->setState('isAdmin', true);
-			}else{
-				$this->setState('isAdmin', false);
-			} */			
 			$user->login_count++;										// 登录次数+1
 			$user->last_login_time = time();							// 登录时间
 			$user->last_login_ip = Yii::app()->request->userHostAddress;	// 登录ip
+			$user->save();
 // yii可否判断一个地址能否被解析?			
 			// if($user->redirect)										// 登录后自动跳转页面
 				// Yii::app()->user->setFlash('redirect', $user->redirect);

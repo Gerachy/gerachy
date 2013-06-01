@@ -16,6 +16,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.modules.user.models.*',
 	),
 
 	'modules'=>array(
@@ -65,10 +66,12 @@ return array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
 				array(
+					'class'=>'CProfileLogRoute',
+				),				
+				array(
 					'class'=>'CFileLogRoute',
-					// 'levels'=>'error, warning',
+					'levels'=>'error, warning',
 				),
-
 				array(
 					'class'=>'CWebLogRoute',
 					// 'levels'=>'error, warning',					
@@ -77,6 +80,7 @@ return array(
 		),
 	),
 
+	
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(

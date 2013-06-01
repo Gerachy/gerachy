@@ -4,6 +4,10 @@ class DefaultController extends Controller
 {
 	public function actionIndex()
 	{
-		$this->render('index');
+		$user = User::model()->findByPk(Yii::app()->user->id);
+	
+		$this->render('index',array(
+			'user' => $user,
+		));
 	}
 }

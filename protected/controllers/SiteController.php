@@ -27,14 +27,6 @@ class SiteController extends Controller
 	 */
 	public function actionIndex()
 	{
-$tmp ='Sardegna,Costa Verde,Masua';
-$tmp = str_replace(' ','-',$tmp);
-var_dump($tmp);
-if(! empty($tmp))
-	echo 1;
-else
-	echo 0;	
-exit;
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
@@ -74,6 +66,42 @@ exit;
 		$this->render('contact',array('model'=>$model));
 	}
 
+
+	/**
+	 * Displays the signup page
+	 */
+	public function actionSignUp()
+	{
+		$model=new SignUpForm;
+
+		if(isset($_POST['ajax']) && $_POST['ajax']==='signup-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+		
+		if(isset($_POST['SignUpForm']))
+		{
+			$user = new User;
+			$user->name = $_POST['SignUpForm']['username'];
+			$user->attributes = $_POST['SignUpForm'];
+			if($user->save())
+			{
+				// 卧槽,这么调用太偷懒了吧!
+				$_POST['LoginForm'] = $_POST['SignUpForm'];
+				$this->actionLogin();			
+			}
+			else
+			{
+				$this->redirect(Yii::app()->request->urlReferrer);			
+			}
+			
+			exit;
+		}
+		
+		$this->render('signup',array('model'=>$model));
+	}
+	
 	/**
 	 * Displays the login page
 	 */
