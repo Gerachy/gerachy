@@ -27,7 +27,7 @@ $this->breadcrumbs=array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email'); ?>
+		<?php echo $form->textField($model,'email',array('value'=>rand(999,9999).'@q.com')); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 	
@@ -50,7 +50,7 @@ $this->breadcrumbs=array(
 	</div>
 
 	<div class="row buttons">
-		<?php echo CHtml::submitButton('Login'); ?>
+		<?php echo CHtml::submitButton('SignUp'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

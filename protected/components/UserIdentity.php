@@ -23,7 +23,7 @@ class UserIdentity extends CUserIdentity
 		if($emailValidator->validateValue($username)) // 如果用户名是email
 			$user = User::model()->find('LOWER(email)=?',array($username));	// 根据email查找用户
 		else
-			$user=User::model()->find('LOWER(name)=?',array($username));		// 根据name查找用户
+			$user = User::model()->find('LOWER(name)=?',array($username));	// 根据name查找用户
 		
 		if($user===null)	// 如果用户为空
 			$this->errorCode=self::ERROR_USERNAME_INVALID;	// 返回用户名称错误

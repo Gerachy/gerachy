@@ -33,8 +33,9 @@ class SignUpForm extends CFormModel
 			array('username, email, password, passwordRepeat', 'required'),
 			// rememberMe needs to be a boolean
 			array('rememberMe', 'boolean'),
-			array('username, email, password, passwordRepeat', 'authenticateOnSignUp', 'on'=>'signUp'),
-			array('username, email, password, passwordRepeat', 'authenticateOnEdit', 'on'=>'edit'),
+			array('username, email, password, passwordRepeat', 'authenticate'),
+			array('username', 'authenticateOnSignUp', 'on'=>'signUp'),
+			array('username', 'authenticateOnEdit', 'on'=>'edit'),
 		);
 	}
 
@@ -49,17 +50,25 @@ class SignUpForm extends CFormModel
 	}
 
 	/**
+	 * 验证的内容
+	 */
+	public function authenticate($attribute,$params)
+	{
+			$this->ifUserNameLengthIllegal();
+			$this->ifUserNameFormIllegal();
+			$this->ifIsEmail();			
+			$this->ifPasswordLengthIllegal();
+			$this->ifPasswordRepeatIsWrong();		
+	}
+	
+	/**
 	 * 注册时验证的内容
 	 */
 	public function authenticateOnSignUp($attribute,$params)
 	{
 		if(!$this->hasErrors())	{
-			$this->ifUserNameIllegalLength();
 			$this->ifUserNameExist();
-			$this->ifIsEmail();
-			$this->ifEmailExist();			
-			$this->ifPasswordIllegalLength();
-			$this->ifPasswordRepeatIsWrong();			
+			$this->ifEmailExist();
 		}
 	}
 
@@ -69,17 +78,14 @@ class SignUpForm extends CFormModel
 	public function authenticateOnEdit($attribute,$params)
 	{
 		if(!$this->hasErrors())	{
-			$this->ifUserNameIllegalLength();
 			$this->ifUserNameExistByOthers();
-			$this->ifIsEmail();
-			$this->ifEmailExistByOthers();			
-			$this->ifPasswordIllegalLength();
-			$this->ifPasswordRepeatIsWrong();
+			$this->ifEmailExistByOthers();
 			if(! $this->hasErrors()) {
 				$user = User::model()->findByPk(Yii::app()->user->id);
-$user->name = Yii::app()->user->name = $this->username;
-$user->email = Yii::app()->user->email = $this->email;
-$user->password = $this->password;				
+				// 更新用户当前资料
+				$user->name = Yii::app()->user->name = $this->username;
+				$user->email = Yii::app()->user->email = $this->email;
+				$user->password = $this->password;				
 				if($user->save())
 					$this->addError('notice','saved');
 				else
@@ -89,7 +95,7 @@ $user->password = $this->password;
 	}
 	
 	// 用户名应在6-32之间
-	public function ifUserNameIllegalLength()
+	public function ifUserNameLengthIllegal()
 	{
 		if(mb_strlen($this->username) < self::minLengthUserName || mb_strlen($this->username) > self::maxLengthUserName)
 			$this->addError('username','username length should >= ' . self::minLengthUserName . ' and <= ' . self::maxLengthUserName);	
@@ -107,6 +113,14 @@ $user->password = $this->password;
 	{
 		if(User::ifAttributeExist('name', $this->username) && $this->username != Yii::app()->user->name)
 			$this->addError('username','username has exist.');	
+	}
+
+	// 判断用户名格式
+	public function ifUserNameFormIllegal()
+	{
+		$v =new CEmailValidator();
+		if($v->validateValue($this->username)) 
+			$this->addError('username','username should not be as Email.');			
 	}
 	
 	// 判断邮箱格式
@@ -132,7 +146,7 @@ $user->password = $this->password;
 	}
 	
 	// 密码长度应该大于6
-	public function ifPasswordIllegalLength()
+	public function ifPasswordLengthIllegal()
 	{	
 		if(strlen($this->password) < self::minLengthPassword  || strlen($this->password) > self::maxLengthPassword) 
 			$this->addError('password','password length should >= ' . self::minLengthPassword . ' and <= ' . self::maxLengthPassword);

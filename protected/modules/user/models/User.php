@@ -121,34 +121,41 @@ class User extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+
+	protected $_password = null;
+	public function afterFind() {
+		$this->_password = $this->password;
+
+	}
 	
 	public function beforeSave() {
 	    if ($this->isNewRecord){	// 如果是新建用户
+			$this->create_ip = Yii::app()->request->userHostAddress;			
+			$this->create_time = time();		
+	    }
+		// 注册和修改密码时前后密码不一致,说明是新密码或者修改密码,则变更salt和密码
+		if($this->_password != $this->password){
 			$this->salt = $this->getSalt();
 			$this->password = $this->hashPassword($this->password, $this->salt);
-			$this->login_count = 1;
-			$this->last_login_ip = Yii::app()->request->userHostAddress;
-			$this->last_login_time = time();
-			$this->create_ip = Yii::app()->request->userHostAddress;			
-			$this->create_time = time();
-	    } else {
-			$this->password = $this->hashPassword($this->password, $this->salt);
 		}
-
+		$this->last_login_ip = Yii::app()->request->userHostAddress;
+		$this->last_login_time = time();
+		$this->login_count = 1;			
 	    return parent::beforeSave();
 	}
 
 	/*	计算Salt	*/
 	public function getSalt()
 	{
-		$str = '';
-		$str = $str . $this->getChineseCharacter();
-		$str = $str . $this->getChineseCharacter();
-		$str = $str . $this->getChineseCharacter();
-		$str = $str . $this->getChineseCharacter();
-		$str = $str . $this->getChineseCharacter();
-		$str = $str . $this->getChineseCharacter();
-		return $str;
+		// $str = '';
+		// $str = $str . $this->getChineseCharacter();
+		// $str = $str . $this->getChineseCharacter();
+		// $str = $str . $this->getChineseCharacter();
+		// $str = $str . $this->getChineseCharacter();
+		// $str = $str . $this->getChineseCharacter();
+		// $str = $str . $this->getChineseCharacter();
+		// return $str;
+		return rand(0,99);
 	}
 
 	/*	计算随机中文字符	*/
