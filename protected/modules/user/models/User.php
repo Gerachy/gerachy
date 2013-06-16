@@ -131,8 +131,9 @@ class User extends CActiveRecord
 			$this->last_login_time = time();
 			$this->create_ip = Yii::app()->request->userHostAddress;			
 			$this->create_time = time();
-
-	    }
+	    } else {
+			$this->password = $this->hashPassword($this->password, $this->salt);
+		}
 
 	    return parent::beforeSave();
 	}

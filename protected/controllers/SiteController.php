@@ -46,6 +46,8 @@ class SiteController extends Controller
 	    }
 	}
 
+		public function actionSignUp()
+	{}
 	/**
 	 * Displays the contact page
 	 */
@@ -66,74 +68,4 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 
-
-	/**
-	 * Displays the signup page
-	 */
-	public function actionSignUp()
-	{
-		$model=new SignUpForm;
-
-		if(isset($_POST['ajax']) && $_POST['ajax']==='signup-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-		
-		if(isset($_POST['SignUpForm']))
-		{
-			$user = new User;
-			$user->name = $_POST['SignUpForm']['username'];
-			$user->attributes = $_POST['SignUpForm'];
-			if($user->save())
-			{
-				// 卧槽,这么调用太偷懒了吧!
-				$_POST['LoginForm'] = $_POST['SignUpForm'];
-				$this->actionLogin();			
-			}
-			else
-			{
-				$this->redirect(Yii::app()->request->urlReferrer);			
-			}
-			
-			exit;
-		}
-		
-		$this->render('signup',array('model'=>$model));
-	}
-	
-	/**
-	 * Displays the login page
-	 */
-	public function actionLogin()
-	{
-		$model=new LoginForm;
-
-		// if it is ajax validation request
-		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-
-		// collect user input data
-		if(isset($_POST['LoginForm']))
-		{
-			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			if($model->validate() && $model->login())
-				$this->redirect(Yii::app()->user->returnUrl);
-		}
-		// display the login form
-		$this->render('login',array('model'=>$model));
-	}
-
-	/**
-	 * Logs out the current user and redirect to homepage.
-	 */
-	public function actionLogout()
-	{
-		Yii::app()->user->logout();
-		$this->redirect(Yii::app()->homeUrl);
-	}
 }

@@ -35,12 +35,16 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+			'loginUrl'=>array('/login'),	// 默认登录地址
 		),
 
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName'=>FALSE,
 			'rules'=>array(
+				'signup' => 'user/default/signup',
+				'login' => 'user/default/login',
+				'logout' => 'user/default/logout',
 				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
@@ -85,6 +89,9 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
+		'org'=>'Project Gerachy Committee',
 		'adminEmail'=>'gerachy@qq.com',
+		'admin'=>'Gerachy',
 	),
+	
 );

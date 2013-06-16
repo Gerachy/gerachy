@@ -4,9 +4,11 @@ $this->breadcrumbs=array(
 );
 ?>
 
+<a href="<?php echo $this->createUrl('/user/default/edit'); ?>">Edit My Info</a>
+
 <?php
-var_dump(Yii::app()->user->id);
-var_dump(Yii::app()->user->name);
-var_dump(Yii::app()->user->email);
+echo '<br />id : ' .(Yii::app()->user->id);
+echo '<br />name : '. (Yii::app()->user->name);
+echo '<br />email : ' .(Yii::app()->user->email);
 var_dump($user->attributes);
 ?>
