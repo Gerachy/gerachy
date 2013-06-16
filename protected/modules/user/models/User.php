@@ -137,25 +137,17 @@ class User extends CActiveRecord
 		if($this->_password != $this->password){
 			$this->salt = $this->getSalt();
 			$this->password = $this->hashPassword($this->password, $this->salt);
-		}
-		$this->last_login_ip = Yii::app()->request->userHostAddress;
-		$this->last_login_time = time();
-		$this->login_count = 1;			
+		}		
 	    return parent::beforeSave();
 	}
 
 	/*	计算Salt	*/
 	public function getSalt()
 	{
-		// $str = '';
-		// $str = $str . $this->getChineseCharacter();
-		// $str = $str . $this->getChineseCharacter();
-		// $str = $str . $this->getChineseCharacter();
-		// $str = $str . $this->getChineseCharacter();
-		// $str = $str . $this->getChineseCharacter();
-		// $str = $str . $this->getChineseCharacter();
-		// return $str;
-		return rand(0,99);
+		$str = '';
+		$str = $str . $this->getChineseCharacter();
+		$str = $str . $this->getChineseCharacter();
+		return $str;
 	}
 
 	/*	计算随机中文字符	*/
@@ -178,9 +170,20 @@ class User extends CActiveRecord
 	{
 		return md5($salt.$password);
 	}
+
+	/*	设置默认信息	*/
+	public function setDefaultState()
+	{
+		Yii::app()->user->setState('id', $this->id);
+		Yii::app()->user->setState('name', $this->name);
+		Yii::app()->user->setState('email', $this->email);
+	}
 	
+	/*	判断指定的属性值属否存在	*/
 	public static function ifAttributeExist($attribute,$value)
 	{
 		return self::model()->find($attribute .' = :value',array(':value' => $value,));
-	}	
+	}
+	
+
 }

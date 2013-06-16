@@ -12,17 +12,17 @@ class DefaultController extends Controller
 	public function accessRules()
     {
         return array(
-			// 已登录用户禁止注册
+			// 已登录用户禁止注册,登录,找回密码
 			array('deny',
-				'actions'=>array('signup'),
+				'actions'=>array('signup', 'login', 'forgetpassword'),
 				'users'=>array('@'),
 			),
 			array('allow',
                 'users'=>array('@'),
             ),
-			// 未登录用户禁止登出
+			// 未登录用户允许注册,登录,找回密码
 			array('allow',
-				'actions'=>array('login', 'signup'),
+				'actions'=>array('signup', 'login', 'forgetpassword'),
 				'users'=>array('?'),
 			),
             array('deny',
@@ -30,7 +30,10 @@ class DefaultController extends Controller
             ),
 		);
     }
-	
+
+	/**
+	 * 用户首页
+	 */	
 	public function actionIndex()
 	{
 		$user = User::model()->findByPk(Yii::app()->user->id);
@@ -39,30 +42,28 @@ class DefaultController extends Controller
 			'user' => $user,
 		));
 	}
-	
+
+	/**
+	 * 编辑用户信息
+	 */	
 	public function actionEdit()
 	{
 		$user = User::model()->findByPk(Yii::app()->user->id);
-
 		$model=new SignUpForm(edit);
-
+		
 		if(isset($_POST['ajax']) && $_POST['ajax']==='edit-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
-
-		// if(isset($_POST['LoginForm']))
-		// {
-			// $model->attributes=$_POST['LoginForm'];
-			// if($model->validate() && $model->login())
-				// $this->redirect(Yii::app()->user->returnUrl);
-		// }
-
+		
 		$model=new SignUpForm;
 		$this->render('edit',compact('user','model'));
 	}
 
+	/**
+	 * 注册
+	 */
 	public function actionSignUp()
 	{
 		$model=new SignUpForm(signUp);
@@ -95,6 +96,9 @@ class DefaultController extends Controller
 		$this->render('signup',array('model'=>$model));
 	}
 
+	/**
+	 * 登录
+	 */	
 	public function actionLogin()
 	{
 		$model=new LoginForm;
@@ -115,9 +119,28 @@ class DefaultController extends Controller
 		$this->render('login',array('model'=>$model));
 	}
 
+	/**
+	 * 注销
+	 */		
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
+	}
+	
+	/**
+	 * 找回密码
+	 */		
+	public function actionForgetPassword()
+	{
+		$model=new ForgetPasswordForm;
+		
+		if(isset($_POST['ajax']) && $_POST['ajax']==='forgetpassword-form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
+		
+		$this->render('forget_password',array('model'=>$model));
 	}	
 }

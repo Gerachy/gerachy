@@ -22,6 +22,7 @@ return array(
 	'modules'=>array(
 		'user',
 		
+		't',
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'123',

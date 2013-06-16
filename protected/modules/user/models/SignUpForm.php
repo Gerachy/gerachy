@@ -54,11 +54,11 @@ class SignUpForm extends CFormModel
 	 */
 	public function authenticate($attribute,$params)
 	{
-			$this->ifUserNameLengthIllegal();
-			$this->ifUserNameFormIllegal();
-			$this->ifIsEmail();			
-			$this->ifPasswordLengthIllegal();
-			$this->ifPasswordRepeatIsWrong();		
+		$this->ifUserNameLengthIllegal();
+		$this->ifUserNameFormIllegal();
+		$this->ifIsEmail();			
+		$this->ifPasswordLengthIllegal();
+		$this->ifPasswordRepeatIsWrong();
 	}
 	
 	/**
@@ -82,10 +82,10 @@ class SignUpForm extends CFormModel
 			$this->ifEmailExistByOthers();
 			if(! $this->hasErrors()) {
 				$user = User::model()->findByPk(Yii::app()->user->id);
-				// 更新用户当前资料
-				$user->name = Yii::app()->user->name = $this->username;
-				$user->email = Yii::app()->user->email = $this->email;
-				$user->password = $this->password;				
+				$user->name = $this->username;
+				$user->email = $this->email;
+				$user->password = $this->password;	
+				$user->setDefaultState();	// 更新用户当前资料				
 				if($user->save())
 					$this->addError('notice','saved');
 				else

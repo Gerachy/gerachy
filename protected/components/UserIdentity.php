@@ -30,17 +30,15 @@ class UserIdentity extends CUserIdentity
 		elseif(! $user->validatePassword($this->password)) 	// 如果密码验证失败
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;	// 返回密码错误
 		else{		// 通过验证
-			$this->setState('id', $user->id);
-			$this->setState('name', $user->name);
-			$this->setState('email', $user->email);
+			$user->setDefaultState();
 			
-			$user->login_count++;										// 登录次数+1
-			$user->last_login_time = time();							// 登录时间
+			$user->login_count++;											// 登录次数+1
+			$user->last_login_time = time();								// 登录时间
 			$user->last_login_ip = Yii::app()->request->userHostAddress;	// 登录ip
 			$user->save();
-// yii可否判断一个地址能否被解析?			
-			// if($user->redirect)										// 登录后自动跳转页面
-				// Yii::app()->user->setFlash('redirect', $user->redirect);
+
+			if($user->redirect)												// 如果设置自动跳转, 登录后自动跳转
+				Yii::app()->request->redirect($user->redirect);
 				
 			$this->errorCode=self::ERROR_NONE;
 		}

@@ -5,6 +5,8 @@ $this->breadcrumbs=array(
 ?>
 
 <a href="<?php echo $this->createUrl('/user/default/edit'); ?>">Edit My Info</a>
+<br />
+<a href="<?php echo $this->createUrl('/user/default/forgetpassword'); ?>">Forget Password</a>
 
 <?php
 echo '<br />id : ' .(Yii::app()->user->id);
