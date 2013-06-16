@@ -11628,3 +11628,230 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/favicon.ico
 ---
+2013/06/16 14:11:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\g\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/06/16 14:11:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\g\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/06/16 14:11:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\g\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/06/16 14:11:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\g\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/06/16 14:11:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\g\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/06/16 14:11:54 [error] [php] mail() expects at least 3 parameters, 0 given (C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php:9)
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 C:\wamp\www\yii\framework\web\CController.php(287): DefaultController->runAction()
+#2 C:\wamp\www\yii\framework\web\CController.php(266): DefaultController->runActionWithFilters()
+#3 C:\wamp\www\yii\framework\web\CWebApplication.php(276): DefaultController->run()
+#4 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 C:\wamp\www\g\index.php(13): CWebApplication->run()
+REQUEST_URI=/t
+in C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php (9)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 14:11:54 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\g\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/06/16 14:12:42 [error] [php] include(C:\wamp\www\g\protected\components\Controller.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\yii\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php(4): spl_autoload_call()
+#1 C:\wamp\www\yii\framework\web\CWebApplication.php(344): require()
+#2 C:\wamp\www\yii\framework\web\CWebApplication.php(332): CWebApplication->createController()
+#3 C:\wamp\www\yii\framework\web\CWebApplication.php(270): CWebApplication->createController()
+#4 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 C:\wamp\www\g\index.php(13): CWebApplication->run()
+REQUEST_URI=/user/default/forgetpassword
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (4)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 14:13:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\g\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/06/16 14:13:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\g\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/06/16 14:19:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\g\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/06/16 14:19:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in C:\wamp\www\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('favicon.ico')
+#1 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\g\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2013/06/16 14:56:36 [error] [php] include(YiiMailMessage.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\yii\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php(12): spl_autoload_call()
+#1 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(50): DefaultController->actionIndex()
+#2 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\yii\framework\web\CController.php(287): DefaultController->runAction()
+#4 C:\wamp\www\yii\framework\web\CController.php(266): DefaultController->runActionWithFilters()
+#5 C:\wamp\www\yii\framework\web\CWebApplication.php(276): DefaultController->run()
+#6 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\wamp\www\g\index.php(13): CWebApplication->run()
+REQUEST_URI=/t
+in C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php (12)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 14:56:48 [error] [php] include(YiiMailMessage.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\yii\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php(12): spl_autoload_call()
+#1 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(50): DefaultController->actionIndex()
+#2 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\yii\framework\web\CController.php(287): DefaultController->runAction()
+#4 C:\wamp\www\yii\framework\web\CController.php(266): DefaultController->runActionWithFilters()
+#5 C:\wamp\www\yii\framework\web\CWebApplication.php(276): DefaultController->run()
+#6 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\wamp\www\g\index.php(13): CWebApplication->run()
+REQUEST_URI=/t
+in C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php (12)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 14:57:27 [error] [php] include(YiiMailMessage.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\yii\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php(12): spl_autoload_call()
+#1 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(50): DefaultController->actionIndex()
+#2 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\yii\framework\web\CController.php(287): DefaultController->runAction()
+#4 C:\wamp\www\yii\framework\web\CController.php(266): DefaultController->runActionWithFilters()
+#5 C:\wamp\www\yii\framework\web\CWebApplication.php(276): DefaultController->run()
+#6 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\wamp\www\g\index.php(13): CWebApplication->run()
+REQUEST_URI=/t
+in C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php (12)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 14:58:23 [error] [php] include(YiiMailMessage.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\yii\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php(12): spl_autoload_call()
+#1 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(50): DefaultController->actionIndex()
+#2 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\yii\framework\web\CController.php(287): DefaultController->runAction()
+#4 C:\wamp\www\yii\framework\web\CController.php(266): DefaultController->runActionWithFilters()
+#5 C:\wamp\www\yii\framework\web\CWebApplication.php(276): DefaultController->run()
+#6 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\wamp\www\g\index.php(13): CWebApplication->run()
+REQUEST_URI=/t
+in C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php (12)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 14:58:24 [error] [php] include(YiiMailMessage.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\yii\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php(12): spl_autoload_call()
+#1 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(50): DefaultController->actionIndex()
+#2 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\yii\framework\web\CController.php(287): DefaultController->runAction()
+#4 C:\wamp\www\yii\framework\web\CController.php(266): DefaultController->runActionWithFilters()
+#5 C:\wamp\www\yii\framework\web\CWebApplication.php(276): DefaultController->run()
+#6 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\wamp\www\g\index.php(13): CWebApplication->run()
+REQUEST_URI=/t
+in C:\wamp\www\g\protected\modules\t\controllers\DefaultController.php (12)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 16:23:21 [warning] [application] Failed to set unsafe attribute "notice" of "ForgetPasswordForm".
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (140)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 16:24:06 [warning] [application] Failed to set unsafe attribute "notice" of "ForgetPasswordForm".
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (140)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 16:26:03 [warning] [application] Failed to set unsafe attribute "notice" of "ForgetPasswordForm".
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (140)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 16:37:44 [warning] [application] Failed to set unsafe attribute "notice" of "ForgetPasswordForm".
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (140)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 16:38:21 [warning] [application] Failed to set unsafe attribute "notice" of "ForgetPasswordForm".
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (140)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 16:40:36 [warning] [application] Failed to set unsafe attribute "notice" of "ForgetPasswordForm".
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (140)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 16:40:38 [warning] [application] Failed to set unsafe attribute "notice" of "ForgetPasswordForm".
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (140)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 16:45:07 [warning] [application] Failed to set unsafe attribute "notice" of "ForgetPasswordForm".
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (140)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 16:45:09 [error] [php] Missing argument 2 for CWebUser::setFlash(), called in C:\wamp\www\g\protected\modules\user\models\ForgetPasswordForm.php on line 34 and defined (C:\wamp\www\yii\framework\web\auth\CWebUser.php:665)
+Stack trace:
+#0 C:\wamp\www\yii\framework\validators\CValidator.php(197): CInlineValidator->validateAttribute()
+#1 C:\wamp\www\yii\framework\base\CModel.php(158): CInlineValidator->validate()
+#2 C:\wamp\www\yii\framework\web\widgets\CActiveForm.php(753): ForgetPasswordForm->validate()
+#3 C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php(140): validate()
+#4 C:\wamp\www\yii\framework\web\actions\CInlineAction.php(50): DefaultController->actionForgetPassword()
+#5 C:\wamp\www\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#6 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(134): DefaultController->runAction()
+#7 C:\wamp\www\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 C:\wamp\www\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#9 C:\wamp\www\yii\framework\web\filters\CInlineFilter.php(59): DefaultController->filterAccessControl()
+#10 C:\wamp\www\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 C:\wamp\www\yii\framework\web\CController.php(292): CFilterChain->run()
+#12 C:\wamp\www\yii\framework\web\CController.php(266): DefaultController->runActionWithFilters()
+#13 C:\wamp\www\yii\framework\web\CWebApplication.php(276): DefaultController->run()
+#14 C:\wamp\www\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#15 C:\wamp\www\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\g\index.php(13): CWebApplication->run()
+REQUEST_URI=/user/default/forgetpassword
+in C:\wamp\www\g\protected\modules\user\models\ForgetPasswordForm.php (34)
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (140)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 16:45:45 [warning] [application] Failed to set unsafe attribute "notice" of "ForgetPasswordForm".
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (140)
+in C:\wamp\www\g\index.php (13)
+2013/06/16 16:47:19 [warning] [application] Failed to set unsafe attribute "notice" of "ForgetPasswordForm".
+in C:\wamp\www\g\protected\modules\user\controllers\DefaultController.php (140)
+in C:\wamp\www\g\index.php (13)

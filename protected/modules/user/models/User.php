@@ -170,13 +170,30 @@ class User extends CActiveRecord
 	{
 		return md5($salt.$password);
 	}
-
+	
 	/*	设置默认信息	*/
 	public function setDefaultState()
 	{
 		Yii::app()->user->setState('id', $this->id);
 		Yii::app()->user->setState('name', $this->name);
 		Yii::app()->user->setState('email', $this->email);
+	}
+
+	/*	重置密码	*/
+	public static function resetPassword($usernameType,$username)
+	{
+		$user = self::model()->find($usernameType . ' = :username',array(':username'=>$username));
+		if($user === null)
+			return false;
+		$password = rand(1,100);
+		$user->password = $password;
+		$user->save();
+			// 发送新密码的邮件
+		mail::forgetPassword(array(
+			'address' => $user->email,
+			'password' => $password,
+		));
+		return $password;
 	}
 	
 	/*	判断指定的属性值属否存在	*/

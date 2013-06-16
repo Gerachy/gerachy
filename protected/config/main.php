@@ -52,7 +52,6 @@ return array(
 			),
 		),
 
-
 		'db'=>array(
 			'connectionString' => 'mysql:host=localhost;dbname=g',
 			'emulatePrepare' => true,
