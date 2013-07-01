@@ -17,6 +17,7 @@ class DefaultController extends Controller
 				'actions'=>array('signup', 'login', 'forgetpassword'),
 				'users'=>array('@'),
 			),
+			// 登录用户允许其他任何操作
 			array('allow',
                 'users'=>array('@'),
             ),
@@ -25,6 +26,7 @@ class DefaultController extends Controller
 				'actions'=>array('signup', 'login', 'forgetpassword'),
 				'users'=>array('?'),
 			),
+			// 未登录用户禁止其他任何操作
             array('deny',
                 'users'=>array('?'),
             ),

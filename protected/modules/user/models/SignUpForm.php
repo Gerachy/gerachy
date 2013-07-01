@@ -34,8 +34,8 @@ class SignUpForm extends CFormModel
 			// rememberMe needs to be a boolean
 			array('rememberMe', 'boolean'),
 			array('username, email, password, passwordRepeat', 'authenticate'),
-			array('username', 'authenticateOnSignUp', 'on'=>'signUp'),
-			array('username', 'authenticateOnEdit', 'on'=>'edit'),
+			array('username', 'authenticateOnSignUp',	'on'=>'signUp'),
+			array('username', 'authenticateOnEdit', 	'on'=>'edit'),
 		);
 	}
 
@@ -54,11 +54,11 @@ class SignUpForm extends CFormModel
 	 */
 	public function authenticate($attribute,$params)
 	{
-		$this->ifUserNameLengthIllegal();
-		$this->ifUserNameFormIllegal();
-		$this->ifIsEmail();			
-		$this->ifPasswordLengthIllegal();
-		$this->ifPasswordRepeatIsWrong();
+		$this->isUserNameLengthIllegal();
+		$this->isUserName();
+		$this->isEmail();			
+		$this->isPasswordLengthIllegal();
+		$this->isPasswordRepeatIsWrong();
 	}
 	
 	/**
@@ -67,8 +67,8 @@ class SignUpForm extends CFormModel
 	public function authenticateOnSignUp($attribute,$params)
 	{
 		if(!$this->hasErrors())	{
-			$this->ifUserNameExist();
-			$this->ifEmailExist();
+			$this->isUserNameExist();
+			$this->isEmailExist();
 		}
 	}
 
@@ -77,9 +77,9 @@ class SignUpForm extends CFormModel
 	 */	
 	public function authenticateOnEdit($attribute,$params)
 	{
-		if(!$this->hasErrors())	{
-			$this->ifUserNameExistByOthers();
-			$this->ifEmailExistByOthers();
+		if(! $this->hasErrors())	{
+			$this->isUserNameExistByOthers();	// 用户名已存在,但不为自己
+			$this->isEmailExistByOthers();		// Email已存在,但不为自己
 			if(! $this->hasErrors()) {
 				$user = User::model()->findByPk(Yii::app()->user->id);
 				$user->name = $this->username;
@@ -95,36 +95,36 @@ class SignUpForm extends CFormModel
 	}
 	
 	// 用户名应在6-32之间
-	public function ifUserNameLengthIllegal()
+	public function isUserNameLengthIllegal()
 	{
 		if(mb_strlen($this->username) < self::minLengthUserName || mb_strlen($this->username) > self::maxLengthUserName)
 			$this->addError('username','username length should >= ' . self::minLengthUserName . ' and <= ' . self::maxLengthUserName);	
 	}	
 
+	// 判断用户名格式, 是否包含非法字符
+	// 允许范围 : 汉字,日文,韩文,数字,字母,下划线
+	public function isUserName()
+	{
+		if(! Regex::isUserName($this->username))
+			$this->addError('username','illegal characters in username.');	
+	}
+	
 	// 用户名已存在
-	public function ifUserNameExist()
+	public function isUserNameExist()
 	{
 		if(User::ifAttributeExist('name', $this->username))
 			$this->addError('username','username has exist.');	
 	}
 
 	// 用户名已存在,但不为自己
-	public function ifUserNameExistByOthers()
+	public function isUserNameExistByOthers()
 	{
 		if(User::ifAttributeExist('name', $this->username) && $this->username != Yii::app()->user->name)
 			$this->addError('username','username has exist.');	
 	}
-
-	// 判断用户名格式
-	public function ifUserNameFormIllegal()
-	{
-		$v =new CEmailValidator();
-		if($v->validateValue($this->username)) 
-			$this->addError('username','username should not be as Email.');			
-	}
 	
 	// 判断邮箱格式
-	public function ifIsEmail()
+	public function isEmail()
 	{
 		$v =new CEmailValidator();
 		if(! $v->validateValue($this->email)) 
@@ -132,28 +132,28 @@ class SignUpForm extends CFormModel
 	}
 	
 	// Email已存在
-	public function ifEmailExist()
+	public function isEmailExist()
 	{	
 		if(User::ifAttributeExist('email', $this->email)) 
 			$this->addError('email','email has exist.');
 	}
 
 	// Email已存在,但不为自己
-	public function ifEmailExistByOthers()
+	public function isEmailExistByOthers()
 	{	
 		if(User::ifAttributeExist('email', $this->email) && $this->email != Yii::app()->user->email) 
 			$this->addError('email','email has exist.');
 	}
 	
 	// 密码长度应该大于6
-	public function ifPasswordLengthIllegal()
+	public function isPasswordLengthIllegal()
 	{	
 		if(strlen($this->password) < self::minLengthPassword  || strlen($this->password) > self::maxLengthPassword) 
 			$this->addError('password','password length should >= ' . self::minLengthPassword . ' and <= ' . self::maxLengthPassword);
 	}
 	
 	// 密码重复应该于密码一致
-	public function ifPasswordRepeatIsWrong()
+	public function isPasswordRepeatIsWrong()
 	{	
 		if($this->password != $this->passwordRepeat) 
 			$this->addError('passwordRepeat','passwordRepeat should = password');

@@ -188,11 +188,7 @@ class User extends CActiveRecord
 		$password = rand(1,100);
 		$user->password = $password;
 		$user->save();
-			// 发送新密码的邮件
-		mail::forgetPassword(array(
-			'address' => $user->email,
-			'password' => $password,
-		));
+		Mail::forgetPassword(array('address' => $user->email,'password' => $password,));// 发送新密码的邮件
 		return $password;
 	}
 	

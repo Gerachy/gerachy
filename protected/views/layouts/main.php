@@ -38,6 +38,7 @@
 				array('label'=>'Logout ', 'url'=>array('/logout'), 'visible'=>! Yii::app()->user->isGuest),
 				array('label'=>'SignUp', 'url'=>array('/signup'), 'visible'=>Yii::app()->user->isGuest),				
 				array('label'=>'Login', 'url'=>array('/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Forget Password', 'url'=>array('/forgetpassword'), 'visible'=>Yii::app()->user->isGuest),
 			),
 		)); ?>
 	</div><!-- mainmenu -->

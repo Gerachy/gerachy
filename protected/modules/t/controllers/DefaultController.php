@@ -4,31 +4,12 @@ class DefaultController extends Controller
 {
 	public function actionIndex()
 	{
-		echo 123;
-		$user = User::model()->findByPk(Yii::app()->user->id);
-		var_dump(mail::forgetPassword(28));
 		
-// $message = 'Hello World!';
-// $mailer = Yii::createComponent('application.extensions.mailer.EMailer');
-// $mailer->Host = 'smtp.exmail.qq.com';
-// $mailer->IsSMTP();
-// $mailer->SMTPAuth  = 1;
-// $mailer->From = 'gerachy@qq.com';
-// $mailer->Username = 'gerachy@qq.com';
-// $mailer->Password = 'google';
-// $mailer->AddReplyTo('gerachy@qq.com');
-// $mailer->AddAddress('gerachy@qq.com');
-// $mailer->FromName = 'Gerachy';
-// $mailer->CharSet = 'UTF-8';
-// $mailer->Subject = 'I\'m Title' . time();
-// $mailer->Body = $message;
-// $mailer->Send();		
-		
-		
-		
-		
-		
-		
+		$s = '啊啊不123_abcABC';
+		preg_match_all('/[\x{4e00}-\x{9fa5}\x{3130}-\x{318F}\x{0800}-\x{4e00}\w]/u', $s, $v);
+		$_length = mb_strlen($s,'utf8');	// 被检验的字符串长度
+		$length = count($v[0]);				// 符合条件的字符数量
+		 $_length == $length;
 		// $this->render('index');
 	}
 }

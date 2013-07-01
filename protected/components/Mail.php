@@ -5,6 +5,9 @@
  */
 class Mail extends CController
 {
+	/**
+	 *	创建邮件的公共/默认部分
+	 */
 	public static function createMail()
 	{
 		$mailer = Yii::createComponent('application.extensions.mailer.EMailer');
@@ -19,6 +22,9 @@ class Mail extends CController
 		return $mailer;
 	}
 	
+	/**
+	 *	发送忘记密码的邮件
+	 */
 	public static function forgetPassword($data)
 	{
 		$mailer = self::createMail();
