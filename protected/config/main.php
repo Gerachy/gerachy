@@ -63,6 +63,20 @@ return array(
 			'charset' => 'utf8',
 		),
 
+	    'cache'=>array(
+            'class'=>'CMemCache',
+            'servers'=>array(
+                array(
+                    'host'=>'kibey_memcache',
+                    'port'=>11211,
+                ),
+            ),
+		),
+
+	 //    'cache'=>array(
+		// 	'class'=>'CFileCache',
+		// ),
+
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
             'errorAction'=>'site/error',
