@@ -11,6 +11,8 @@ class TModule extends CWebModule
 		$this->setImport(array(
 			't.models.*',
 			't.components.*',
+			// 设定默认控制器
+			$this->defaultController = 'Index',	
 		));
 	}
 

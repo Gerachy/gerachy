@@ -73,9 +73,24 @@ return array(
             ),
 		),
 
-	 //    'cache'=>array(
+	 	//'cache'=>array(
 		// 	'class'=>'CFileCache',
 		// ),
+
+	    // SESSION保存在缓存中
+        'session' => array (
+            'class'=> 'CCacheHttpSession',
+            'cacheID' => 'cache',
+            'cookieMode' => 'only',
+            'timeout' => 1200
+        ),
+
+        // SESSION保存在数据库中
+		// 'session' => array (
+		//     'class' => 'system.web.CDbHttpSession',
+		//     'connectionID' => 'db',
+		//     'sessionTableName' => 'actual_table_name',
+		// ),        
 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors

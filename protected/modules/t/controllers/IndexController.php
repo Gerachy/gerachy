@@ -1,15 +1,30 @@
 <?php
 
-class DefaultController extends Controller
+class IndexController extends Controller
 {
+	public function actionA()
+	{
+		var_dump(Yii::app()->session);
+		// Yii::app()->session->add('id',4);
+		var_dump(Yii::app()->session->get('id'));
+	}
+
+	public function actionB()
+	{
+
+		$id = 'id';
+		$value = Yii::app()->cache->get($id);
+		var_dump($value);
+	}
+
 	public function actionIndex()
 	{
 		$id = 'id';
-		$value = Yii::app()->cache->set($id,1000);
+		$value = Yii::app()->cache->set($id,666);
 		$value = Yii::app()->cache->get($id);
-		// $value =Yii::app()->db;
-		var_dump($value);
 
+		var_dump($value);
+var_dump(Yii::app()->cache);
 
 		// $model = Test::model()->findAll();
 
