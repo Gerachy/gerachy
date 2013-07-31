@@ -17,6 +17,7 @@ return array(
 		'application.models.*',
 		'application.components.*',
 		'application.modules.user.models.*',
+		'application.extensions.*',
 	),
 
 	'modules'=>array(
@@ -63,6 +64,8 @@ return array(
 			'charset' => 'utf8',
 		),
 
+	    
+	    // MemCache缓存
 	    'cache'=>array(
             'class'=>'CMemCache',
             'servers'=>array(
@@ -73,6 +76,7 @@ return array(
             ),
 		),
 
+   		// 文件缓存
 	 	//'cache'=>array(
 		// 	'class'=>'CFileCache',
 		// ),
@@ -90,12 +94,14 @@ return array(
 		//     'class' => 'system.web.CDbHttpSession',
 		//     'connectionID' => 'db',
 		//     'sessionTableName' => 'actual_table_name',
-		// ),        
+		// ),  
+
 
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
             'errorAction'=>'site/error',
         ),
+
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
