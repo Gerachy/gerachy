@@ -66,20 +66,20 @@ return array(
 
 	    
 	    // MemCache缓存
-	    'cache'=>array(
-            'class'=>'CMemCache',
-            'servers'=>array(
-                array(
-                    'host'=>'kibey_memcache',
-                    'port'=>11211,
-                ),
-            ),
-		),
+	    // 'cache'=>array(
+            // 'class'=>'CMemCache',
+            // 'servers'=>array(
+                // array(
+                    // 'host'=>'kibey_memcache',
+                    // 'port'=>11211,
+                // ),
+            // ),
+		// ),
 
    		// 文件缓存
-	 	//'cache'=>array(
-		// 	'class'=>'CFileCache',
-		// ),
+	 	'cache'=>array(
+			'class'=>'CFileCache',
+		),
 
 	    // SESSION保存在缓存中
         'session' => array (
