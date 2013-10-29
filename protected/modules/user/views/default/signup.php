@@ -1,10 +1,3 @@
-<?php
-$this->pageTitle='SignUp';
-$this->breadcrumbs=array(
-	'SignUp',
-);
-?>
-
 <h1>SignUp</h1>
 
 <div class="form">

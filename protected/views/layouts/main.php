@@ -29,6 +29,7 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'Acc（账目）', 'url'=>array('/acc')),
 				array('label'=>'Test', 'url'=>array('/t')),
 
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),

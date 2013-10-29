@@ -46,8 +46,7 @@ class SiteController extends Controller
 	    }
 	}
 
-		public function actionSignUp()
-	{}
+
 	/**
 	 * Displays the contact page
 	 */

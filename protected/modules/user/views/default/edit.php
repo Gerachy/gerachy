@@ -1,10 +1,3 @@
-<?php
-$this->pageTitle=Yii::app()->name . ' - Edit My Info';
-$this->breadcrumbs=array(
-	'Edit My Info',
-);
-?>
-
 <h1>Edit My Info</h1>
 
 <p>Please fill out the following form with your login credentials:</p>

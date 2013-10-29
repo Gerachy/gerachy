@@ -22,7 +22,7 @@ return array(
 
 	'modules'=>array(
 		'user',
-		
+		'acc',
 		't',
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',

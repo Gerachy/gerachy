@@ -1,10 +1,3 @@
-<?php
-$this->pageTitle='Forget Password';
-$this->breadcrumbs=array(
-	'Forget Password',
-);
-?>
-
 <h1>Forget Password</h1>
 
 <?php if(Yii::app()->user->getFlash('ForgetPassword')){ ?>

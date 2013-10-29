@@ -38,6 +38,8 @@ class DefaultController extends Controller
 	 */	
 	public function actionIndex()
 	{
+		$this->pageTitle=Yii::app()->name . ' - My Info';
+
 		$user = User::model()->findByPk(Yii::app()->user->id);
 	
 		$this->render('index',array(
@@ -50,6 +52,8 @@ class DefaultController extends Controller
 	 */	
 	public function actionEdit()
 	{
+		$this->pageTitle=Yii::app()->name . ' - Edit My Info';
+
 		$user = User::model()->findByPk(Yii::app()->user->id);
 		$model=new SignUpForm(edit);
 		
@@ -68,6 +72,8 @@ class DefaultController extends Controller
 	 */
 	public function actionSignUp()
 	{
+		$this->pageTitle='SignUp';
+		
 		$model=new SignUpForm(signUp);
 
 		if(isset($_POST['ajax']) && $_POST['ajax']==='signup-form')
@@ -103,6 +109,8 @@ class DefaultController extends Controller
 	 */	
 	public function actionLogin()
 	{
+		$this->pageTitle=Yii::app()->name . ' - Login';
+
 		$model=new LoginForm;
 
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
@@ -135,6 +143,8 @@ class DefaultController extends Controller
 	 */		
 	public function actionForgetPassword()
 	{
+		$this->pageTitle='Forget Password';
+
 		$model=new ForgetPasswordForm;
 		
 		if(isset($_POST['ajax']) && $_POST['ajax']==='forgetpassword-form')
