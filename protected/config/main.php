@@ -26,7 +26,7 @@ return array(
 		't',
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'123',
+			'password'=>'1',
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
 

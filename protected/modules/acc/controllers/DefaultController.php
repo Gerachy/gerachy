@@ -21,6 +21,19 @@ class DefaultController extends Controller
 
 	public function actionIndex()
 	{
+$sql = '
+	SELECT 
+		SUM(debit) - SUM(credit)
+	FROM 
+		`accounts_detail`
+	WHERE
+		1 OR `accounts` = 3
+	';
+$command = Yii::app()->db->createCommand($sql);
+$a = $command->queryscalar();
+var_dump($a);
+exit;
+
 
 		$this->render('index');
 	}
