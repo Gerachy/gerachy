@@ -67,6 +67,7 @@ class SignUpForm extends CFormModel
 	public function authenticateOnSignUp($attribute,$params)
 	{
 		if(!$this->hasErrors())	{
+			$this->isUserName();
 			$this->isUserNameExist();
 			$this->isEmailExist();
 		}
