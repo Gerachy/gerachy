@@ -74,7 +74,7 @@ class DefaultController extends Controller
 	{
 		$this->pageTitle='SignUp';
 		
-		$model=new SignUpForm(signUp);
+		$model=new SignUpForm('signUp');
 
 		if(isset($_POST['ajax']) && $_POST['ajax']==='signup-form')
 		{
