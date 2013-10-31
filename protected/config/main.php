@@ -21,9 +21,9 @@ return array(
 	),
 
 	'modules'=>array(
+		'accounts',
 		'user',
-		'acc',
-		't',
+
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
 			'password'=>'1',
