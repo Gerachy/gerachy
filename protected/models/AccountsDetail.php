@@ -19,7 +19,7 @@
  * @property string $modify_time
  * @property integer $status
  */
-class AccountsDetail extends CActiveRecord
+class AccountsDetail extends KActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.

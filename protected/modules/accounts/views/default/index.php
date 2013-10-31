@@ -10,30 +10,49 @@
 <br>
 
 <?php
+	echo '<br>基本账户';
 	$sql = '
-		SELECT 
-			SUM(debit) - SUM(credit)
-		FROM 
-			`accounts_detail`
-		WHERE
-			`accounts` = 3
-		';
+		SELECT SUM(debit)
+		FROM `accounts_detail`
+		WHERE `accounts` = 1';
 	$command = Yii::app()->db->createCommand($sql);
-	$a3 = $command->queryscalar();
-	echo '<br>活动账户 总收支 : ' . $a3;
+	$a1d = $command->queryscalar();
+	echo '<br>收入 : ' . $a1d;
 
 	$sql = '
-		SELECT 
-			SUM(debit) - SUM(credit)
-		FROM 
-			`accounts_detail`
-		WHERE
-			`accounts` = 4
-		';
+		SELECT SUM(credit)
+		FROM `accounts_detail`
+		WHERE `accounts` = 1';
 	$command = Yii::app()->db->createCommand($sql);
-	$a4 = $command->queryscalar();
-	echo '<br>现金账户 总收支 : ' . $a4;
+	$a1c = $command->queryscalar();
+	echo '<br>支出 : ' . $a1c;
+	
+	$a1t = $a1d - $a1c;
+	echo '<br>总计 : ' . $a1t;
 
+	echo '<br>';
+
+	echo '<br>现金账户';
+	$sql = '
+		SELECT SUM(debit)
+		FROM `accounts_detail`
+		WHERE `accounts` = 4';
+	$command = Yii::app()->db->createCommand($sql);
+	$a3d = $command->queryscalar();
+	echo '<br>收入 : ' . $a3d;
+
+	$sql = '
+		SELECT SUM(credit)
+		FROM `accounts_detail`
+		WHERE `accounts` = 4';
+	$command = Yii::app()->db->createCommand($sql);
+	$a3c = $command->queryscalar();
+	echo '<br>支出 : ' . $a3c;
+
+	$a3t = $a3d - $a3c;
+	echo '<br>总计 : ' . $a3t;
+
+	echo '<br><br>收支总计 : ' . ($a1t + $a3t);
 
 	// $a = Accounts::model()->find();
 	// var_dump($a);

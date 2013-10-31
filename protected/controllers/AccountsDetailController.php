@@ -64,7 +64,7 @@ class AccountsDetailController extends Controller
 	{
 		$model=new AccountsDetail;
 
-		$model->accounts = 3;
+		$model->accounts = 1;
 
 		$model->year = date('Y');
 		$model->month = date('m');
@@ -76,7 +76,7 @@ class AccountsDetailController extends Controller
 		if(isset($_POST['AccountsDetail']))
 		{
 			$model->attributes=$_POST['AccountsDetail'];
-var_dump($model->attributes);exit;			
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
