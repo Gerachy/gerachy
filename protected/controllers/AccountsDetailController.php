@@ -65,18 +65,15 @@ class AccountsDetailController extends Controller
 		$model=new AccountsDetail;
 
 		$model->accounts = 1;
-
 		$model->year = date('Y');
 		$model->month = date('m');
 		$model->day = date('d');
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['AccountsDetail']))
 		{
 			$model->attributes=$_POST['AccountsDetail'];
-
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

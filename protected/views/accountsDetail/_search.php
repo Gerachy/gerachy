@@ -65,7 +65,17 @@
 		<?php echo $form->label($model,'credit'); ?>
 		<?php echo $form->textField($model,'credit',array('size'=>12,'maxlength'=>12)); ?>
 	</div>
-	
+
+	<div class="row">
+		<?php echo $form->label($model,'credit_cat'); ?>
+		<?php echo $form->textField($model,'credit_cat'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'desc'); ?>
+		<?php echo $form->textField($model,'desc',array('size'=>60,'maxlength'=>255)); ?>
+	</div>
+
 	<div class="row">
 		<?php echo $form->label($model,'create_time'); ?>
 		<?php echo $form->textField($model,'create_time',array('size'=>10,'maxlength'=>10)); ?>

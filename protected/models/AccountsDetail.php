@@ -15,7 +15,9 @@
  * @property string $summary
  * @property string $debit
  * @property string $credit
-  * @property string $create_time
+ * @property integer $credit_cat
+ * @property string $desc
+ * @property string $create_time
  * @property string $modify_time
  * @property integer $status
  */
@@ -48,15 +50,17 @@ class AccountsDetail extends KActiveRecord
 		// will receive user inputs.
 		return array(
 			array('accounts, year, month, day, summary', 'required'),
-			array('voucher1, voucher2, voucher, status', 'numerical', 'integerOnly'=>true),
+			array('credit_cat, status', 'numerical', 'integerOnly'=>true),
 			array('accounts, create_time, modify_time', 'length', 'max'=>10),
 			array('year', 'length', 'max'=>4),
 			array('month, day', 'length', 'max'=>2),
+			array('voucher1, voucher2, voucher', 'length', 'max'=>32),
 			array('summary', 'length', 'max'=>64),
 			array('debit, credit', 'length', 'max'=>12),
+			array('desc', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, accounts, year, month, day, voucher1, voucher2, voucher, summary, debit, credit, create_time, modify_time, status', 'safe', 'on'=>'search'),
+			array('id, accounts, year, month, day, voucher1, voucher2, voucher, summary, debit, credit, credit_cat, desc, create_time, modify_time, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -82,12 +86,14 @@ class AccountsDetail extends KActiveRecord
 			'year' => '年',
 			'month' => '月',
 			'day' => '日',
-			'voucher1' => '凭证号（不填）',
-			'voucher2' => '凭证号（外部）',
-			'voucher' => '凭证外部号（内部）',
-			'summary' => '摘要',
-			'debit' => '借方',
-			'credit' => '贷方',
+			'voucher1' => 'Voucher1',
+			'voucher2' => 'Voucher2',
+			'voucher' => 'Voucher',
+			'summary' => 'Summary',
+			'debit' => '借',
+			'credit' => '贷',
+			'credit_cat' => '支出类别',
+			'desc' => '描述',
 			'create_time' => 'Create Time',
 			'modify_time' => 'Modify Time',
 			'status' => 'Status',
@@ -116,6 +122,8 @@ class AccountsDetail extends KActiveRecord
 		$criteria->compare('summary',$this->summary,true);
 		$criteria->compare('debit',$this->debit,true);
 		$criteria->compare('credit',$this->credit,true);
+		$criteria->compare('credit_cat',$this->credit_cat);
+		$criteria->compare('desc',$this->desc,true);
 		$criteria->compare('create_time',$this->create_time,true);
 		$criteria->compare('modify_time',$this->modify_time,true);
 		$criteria->compare('status',$this->status);
@@ -126,6 +134,7 @@ class AccountsDetail extends KActiveRecord
 	}
 
 
+
 	/**
 	 * 小数千分位符号的删除
 	 */
@@ -134,5 +143,22 @@ class AccountsDetail extends KActiveRecord
         $this->credit = str_replace(',', '', $this->credit);
    
         return parent::beforeSave();
-    }	
+    }
+
+	public $creditCat = array(
+		'1'	=>	'工资',
+		'2'	=>	'备用金',
+		'3'	=>	'固定性经营支出',
+		'4'	=>	'消耗性经营支出',
+		'5'	=>	'业务招待',
+		'6'	=>	'差旅费',
+
+		'11'	=>	'商品成本'
+
+	);    
+
+
+
+
+
 }

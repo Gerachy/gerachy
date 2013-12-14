@@ -39,6 +39,7 @@
 		<?php echo $form->error($model,'day'); ?>
 	</div>
 
+<!--
 	<div class="row">
 		<?php echo $form->labelEx($model,'voucher1'); ?>
 		<?php echo $form->textField($model,'voucher1'); ?>
@@ -50,6 +51,7 @@
 		<?php echo $form->textField($model,'voucher2'); ?>
 		<?php echo $form->error($model,'voucher2'); ?>
 	</div>
+-->
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'voucher'); ?>
@@ -73,6 +75,18 @@
 		<?php echo $form->labelEx($model,'credit'); ?>
 		<?php echo $form->textField($model,'credit',array('size'=>12,'maxlength'=>12)); ?>
 		<?php echo $form->error($model,'credit'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'credit_cat'); ?>
+		<?php echo $form->textField($model,'credit_cat'); ?>
+		<?php echo $form->error($model,'credit_cat'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'desc'); ?>
+		<?php echo $form->textField($model,'desc',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'desc'); ?>
 	</div>
 
 	<div class="row buttons">

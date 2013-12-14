@@ -50,8 +50,12 @@
 	<?php echo CHtml::encode($data->credit); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('dac')); ?>:</b>
-	<?php echo CHtml::encode($data->dac); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('credit_cat')); ?>:</b>
+	<?php echo CHtml::encode($data->credit_cat); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('desc')); ?>:</b>
+	<?php echo CHtml::encode($data->desc); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('create_time')); ?>:</b>
