@@ -1,0 +1,48 @@
+CREATE TABLE `accounts_category` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  `create_time` int(10) unsigned DEFAULT NULL,
+  `modify_time` int(10) unsigned DEFAULT NULL,
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
+
+CREATE TABLE `accounts_detail` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `accounts` int(10) unsigned NOT NULL,
+  `year` char(4) NOT NULL,
+  `month` char(2) NOT NULL,
+  `day` char(2) NOT NULL,
+  `voucher1` varchar(32) DEFAULT NULL,
+  `voucher2` varchar(32) DEFAULT NULL,
+  `voucher` varchar(32) DEFAULT NULL,
+  `summary` varchar(64) NOT NULL,
+  `debit` decimal(12,2) NOT NULL DEFAULT '0.00',
+  `credit` decimal(12,2) NOT NULL DEFAULT '0.00',
+  `credit_cat` int(10) DEFAULT NULL,
+  `desc` varchar(255) DEFAULT NULL,
+  `create_time` int(10) unsigned DEFAULT NULL,
+  `modify_time` int(10) unsigned DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8
+
+CREATE TABLE `accounts_voucher_category` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) NOT NULL,
+  `create_time` int(10) unsigned DEFAULT NULL,
+  `modify_time` int(10) unsigned DEFAULT NULL,
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `accounts_voucher_detail` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `category` varchar(64) NOT NULL,
+  `date_time` int(10) unsigned NOT NULL,
+  `fare` int(10) unsigned NOT NULL,
+  `create_time` int(10) unsigned DEFAULT NULL,
+  `modify_time` int(10) unsigned DEFAULT NULL,
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
