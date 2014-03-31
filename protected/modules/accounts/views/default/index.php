@@ -1,33 +1,15 @@
 <a href="/gerachy/accountsCategory">账户分类</a>
-<br>
-1 : 基本账户（人民币）<br>
-2 : 基本账户（美元）<br>
-3 : 备用金(现金) <br>
-4 : 现金账户 <br>
-<br>
+<br><br>
+
 <a href="/gerachy/accountsDetail">账户详情</a>
-<br>
-支出类型	<br>
- 1 : 工资<br>
- 2 : 备用金<br>
- 3 : 固定性经营支出<br>
- 4 : 消耗性经营支出<br>
- 5 : 业务招待<br>
- 6 : 差旅费<br>
- 11 : 商品成本<br>
-<br>
+<span><a style="color: #223311" href="/gerachy/accountsDetail/create">添加账户详情</a></span>
+<br><br>
 
-常用公司
-<br>
-北京义傲思程贸易有限公司
-<br>
-济宁博克机械有限公司
-<br>
-
-<br>
 <a href="/gerachy/accountsVoucherCategory">凭据分类</a>
+<br><br>
+
 <a href="/gerachy/accountsVoucherDetail">凭据详情</a>
-<br>
+<br><br>
 
 <?php
 	echo '<br>基本账户';
@@ -86,9 +68,8 @@
 		WHERE `credit_cat` = 2';
 	$command = Yii::app()->db->createCommand($sql);
 	$cash = $command->queryscalar();
-	echo '<br>备用金流量 : ' . $cash;
-
-	echo '<br>';
+	//echo '<br>备用金流量 : ' . $cash;
+	//echo '<br>';
 
 	echo '<br>现金账户';
 	$sql = '
