@@ -2,7 +2,8 @@
 <br>
 1 : 基本账户（人民币）<br>
 2 : 基本账户（美元）<br>
-3 : 备用金(现金)<br>
+3 : 备用金(现金) <br>
+4 : 现金账户 <br>
 <br>
 <a href="/gerachy/accountsDetail">账户详情</a>
 <br>
@@ -16,8 +17,15 @@
  11 : 商品成本<br>
 <br>
 
+常用公司
+<br>
+北京义傲思程贸易有限公司
+<br>
+济宁博克机械有限公司
+<br>
+
+<br>
 <a href="/gerachy/accountsVoucherCategory">凭据分类</a>
- 
 <a href="/gerachy/accountsVoucherDetail">凭据详情</a>
 <br>
 
