@@ -54,7 +54,7 @@
 
 	echo '<br>';
 
-	echo '<br>现金账户';
+	echo '<br>备用金账户';
 	$sql = '
 		SELECT SUM(debit)
 		FROM `accounts_detail`
@@ -88,8 +88,33 @@
 	$cash = $command->queryscalar();
 	echo '<br>备用金流量 : ' . $cash;
 
-
 	echo '<br>';
+
+	echo '<br>现金账户';
+	$sql = '
+		SELECT SUM(debit)
+		FROM `accounts_detail`
+		WHERE `accounts` = 4
+			and `status` = 1';
+	$command = Yii::app()->db->createCommand($sql);
+	$a3d = $command->queryscalar();
+	echo '<br>收入 : ' . $a3d;
+
+	$sql = '
+		SELECT SUM(credit)
+		FROM `accounts_detail`
+		WHERE `accounts` = 4
+			and `status` = 1';
+	$command = Yii::app()->db->createCommand($sql);
+	$a3c = $command->queryscalar();
+	echo '<br>支出 : ' . $a3c;
+
+	$a3t = $a3d - $a3c;
+	echo '<br>余额 : ' . $a3t;
+	
+	echo '<br>';
+
+	echo '<br>总计';
 	echo '<br>收入 : ' . ($a1d + $a3d - $cash);
 	echo '<br>支出 : ' . ($a1c + $a3c - $cash);
 	echo '<br>余额 : ' . ($a1t + $a3t);
