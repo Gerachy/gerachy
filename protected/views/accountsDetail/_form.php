@@ -8,7 +8,7 @@
 .row {float: left; width: 100%}
 label {display: block; width: 75px; float: left; margin-right: 10px;}
 .option {float: left; width: 100%}
-.option span {display: block; float: left; margin: 0px 10px 5px 0px; padding: 2px 5px; background-color: #EECEDE;}
+.option span {display: block; float: left; margin: 0px 10px 5px 0px; padding: 2px 5px; background-color: #657; color: #FFF}
 </style>
 
 <div class="form">
@@ -27,10 +27,10 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 		<?php echo $form->textField($model,'accounts',array('size'=>4,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'accounts'); ?>
 		<div class="option">
-			<span value="1" class="accounts">基本账户（人民币</span>
-			<span value="2" class="accounts">基本账户（美元</span>	
+			<span value="1" class="accounts">基本账户（人民币）</span>
+			<!-- <span value="2" class="accounts">基本账户（美元）</span>	 -->
 			<span value="3" class="accounts">备用金</span>					
-			<span value="4" class="accounts">现金</span>
+			<span value="4" class="accounts">银行卡</span>
 		</div>		
 		<script>
 			$(".accounts").on("click",function(){$("#AccountsDetail_accounts").attr("value",$(this).attr("value"))});
@@ -89,15 +89,17 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 		<div class="option">
 			<span class="summary">交易收入</span>
 			<span class="summary">交易支出</span>	
-			<span class="summary">银行服务费</span>					
 			<span class="summary">发放工资</span>
 			<span class="summary">收入工资</span>
 			<span class="summary">支出备用金</span>
 			<span class="summary">收入备用金</span>
-			<span class="summary">缴税</span>
+			<span class="summary">缴税</span>						
+			<br><br>
+			<span class="summary">银行服务费</span>					
+			<span class="summary">银行结息</span>
 			<span class="summary">招待费</span>
 			<span class="summary">差旅费</span>
-			<span class="summary">银行结息</span>
+
 
 		</div>		
 		<script>
@@ -123,13 +125,15 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 		<?php echo $form->error($model,'credit_cat'); ?>
 		<div class="option">
 			<span value="11" class="credit_cat">11 : 商品成本</span>			
-			<span value="11" class="credit_cat">12 : 实时缴税</span>			
 			<span value="1" class="credit_cat">1 : 工资</span>
 			<span value="2" class="credit_cat">2 : 备用金</span>
+			<span value="11" class="credit_cat">12 : 实时缴税</span>			
+			<br><br>
 			<span value="3" class="credit_cat">3 : 固定性经营支出</span>
 			<span value="4" class="credit_cat">4 : 消耗性经营支出</span>
 			<span value="5" class="credit_cat">5 : 招待费</span>
 			<span value="6" class="credit_cat">6 : 差旅费</span>
+			<span value="1000" class="credit_cat">1000 : 其他</span>
 		</div>		
 		<script>
 			$(".credit_cat").on("click",function(){$("#AccountsDetail_credit_cat").attr("value",$(this).attr("value"))});
@@ -145,6 +149,7 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 			<span class="desc">北京义傲思程贸易有限公司</span>
 			<span class="desc">马千里<?php echo date("Y/m"); ?></span>
 			<span class="desc">王晓光<?php echo date("Y/m"); ?></span>
+			<span class="desc">薛雪</span>
 		</div>		
 		<script>
 			$(".desc").on("click",function(){$("#AccountsDetail_desc").attr("value",$(this).text())});
