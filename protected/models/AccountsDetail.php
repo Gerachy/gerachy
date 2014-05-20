@@ -89,7 +89,7 @@ class AccountsDetail extends KActiveRecord
 			'voucher1' => 'Voucher1',
 			'voucher2' => 'Voucher2',
 			'voucher' => 'Voucher',
-			'summary' => 'Summary',
+			'summary' => '交易名称',
 			'debit' => '借',
 			'credit' => '贷',
 			'credit_cat' => '支出类别',
