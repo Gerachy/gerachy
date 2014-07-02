@@ -12,34 +12,34 @@
 <br><br>
 
 <?php
-	echo '<br>基本账户';
-	$sql = '
-		SELECT SUM(debit)
-		FROM `accounts_detail`
-		WHERE `accounts` = 1
-			and `status` = 1';
-	$a1d = Yii::app()->db->createCommand($sql)->queryscalar();
-	echo '<br>收入 : ' . $a1d;
+	// echo '<br>基本账户';
+	// $sql = '
+	// 	SELECT SUM(debit)
+	// 	FROM `accounts_detail`
+	// 	WHERE `accounts` = 1
+	// 		and `status` = 1';
+	// $a1d = Yii::app()->db->createCommand($sql)->queryscalar();
+	// echo '<br>收入 : ' . $a1d;
 
-	$sql = '
-		SELECT SUM(credit)
-		FROM `accounts_detail`
-		WHERE `accounts` = 1
-			and `status` = 1';
-	$a1c = Yii::app()->db->createCommand($sql)->queryscalar();
-	echo '<br>支出 : ' . $a1c;
+	// $sql = '
+	// 	SELECT SUM(credit)
+	// 	FROM `accounts_detail`
+	// 	WHERE `accounts` = 1
+	// 		and `status` = 1';
+	// $a1c = Yii::app()->db->createCommand($sql)->queryscalar();
+	// echo '<br>支出 : ' . $a1c;
 	
-	$a1t = $a1d - $a1c;
-	echo '<br>余额 : ' . $a1t . '<br>';
+	// $a1t = $a1d - $a1c;
+	// echo '<br>余额 : ' . $a1t . '<br>';
 
 
 
-	$sql = '
-		SELECT SUM(credit)
-		FROM `accounts_detail`
-		WHERE `credit_cat` = 2';
-	$cash = Yii::app()->db->createCommand($sql)->queryscalar();
-	echo '(备用金流量 : ' . $cash . ')<br>';
+	// $sql = '
+	// 	SELECT SUM(credit)
+	// 	FROM `accounts_detail`
+	// 	WHERE `credit_cat` = 2';
+	// $cash = Yii::app()->db->createCommand($sql)->queryscalar();
+	// echo '(备用金流量 : ' . $cash . ')<br>';
 
 
 
@@ -77,13 +77,15 @@
 	
 	echo '<br>收入 : ' . ($a3d + $a4d);
 	echo '<br>支出 : ' . ($a3c + $a4c);
-	echo '<br>余额 : ' . ($a3t + $a4t);
-	echo ' <br>(现金：' . $a3t . ' / 银行卡： ' . $a4t . ')';
-	
-	echo '<br>';
 
-	echo '<br>总计';
-	echo '<br>收入 : ' . ($a1d + $a3d + $a3d - $cash);
-	echo '<br>支出 : ' . ($a1c + $a3c + $a4c - $cash);
-	echo '<br>余额 : ' . ($a1t + $a3t + $a4t);
+	echo '<br><br>其中 : ';
+	echo ' <br>备用金：' . $a3t . ' <br>银行卡： ' . $a4t;
+
+	echo '<br><br>总计 : ' . ($a3t + $a4t);	
+	// echo '<br>';
+
+	// echo '<br>总计';
+	// echo '<br>收入 : ' . ($a1d + $a3d + $a3d - $cash);
+	// echo '<br>支出 : ' . ($a1c + $a3c + $a4c - $cash);
+	// echo '<br>余额 : ' . ($a1t + $a3t + $a4t);
 ?>

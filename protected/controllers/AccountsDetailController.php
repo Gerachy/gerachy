@@ -64,7 +64,7 @@ class AccountsDetailController extends Controller
 	{
 		$model=new AccountsDetail;
 
-		$model->accounts = 1;
+		$model->accounts = 3;
 		$model->year = date('Y');
 		$model->month = date('m');
 		$model->day = date('d');

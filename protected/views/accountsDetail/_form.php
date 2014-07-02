@@ -27,7 +27,7 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 		<?php echo $form->textField($model,'accounts',array('size'=>4,'maxlength'=>10)); ?>
 		<?php echo $form->error($model,'accounts'); ?>
 		<div class="option">
-			<span value="1" class="accounts">基本账户（人民币）</span>
+			<!-- <span value="1" class="accounts">基本账户（人民币）</span> -->
 			<!-- <span value="2" class="accounts">基本账户（美元）</span>	 -->
 			<span value="3" class="accounts">备用金</span>					
 			<span value="4" class="accounts">银行卡</span>
@@ -150,6 +150,7 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 			<span class="desc">马千里<?php echo date("Y/m"); ?></span>
 			<span class="desc">王晓光<?php echo date("Y/m"); ?></span>
 			<span class="desc">薛雪</span>
+			<span class="desc">DST</span>			
 		</div>		
 		<script>
 			$(".desc").on("click",function(){$("#AccountsDetail_desc").attr("value",$(this).text())});
