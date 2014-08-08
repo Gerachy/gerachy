@@ -58,30 +58,31 @@
 	$a3c = Yii::app()->db->createCommand($sql)->queryscalar();
 	$a3t = $a3d - $a3c;
 
+	echo '<br>总计 : ' . ($a3t);	
 
 
 	// echo '<br>现金账户';
-	$sql = '
-		SELECT SUM(debit)
-		FROM `accounts_detail`
-		WHERE `accounts` = 4
-			and `status` = 1';
-	$a4d = Yii::app()->db->createCommand($sql)->queryscalar();
-	$sql = '
-		SELECT SUM(credit)
-		FROM `accounts_detail`
-		WHERE `accounts` = 4
-			and `status` = 1';
-	$a4c = Yii::app()->db->createCommand($sql)->queryscalar();
-	$a4t = $a4d - $a4c;
+	// $sql = '
+	// 	SELECT SUM(debit)
+	// 	FROM `accounts_detail`
+	// 	WHERE `accounts` = 4
+	// 		and `status` = 1';
+	// $a4d = Yii::app()->db->createCommand($sql)->queryscalar();
+	// $sql = '
+	// 	SELECT SUM(credit)
+	// 	FROM `accounts_detail`
+	// 	WHERE `accounts` = 4
+	// 		and `status` = 1';
+	// $a4c = Yii::app()->db->createCommand($sql)->queryscalar();
+	// $a4t = $a4d - $a4c;
 	
-	echo '<br>收入 : ' . ($a3d + $a4d);
-	echo '<br>支出 : ' . ($a3c + $a4c);
+	// echo '<br>收入 : ' . ($a3d + $a4d);
+	// echo '<br>支出 : ' . ($a3c + $a4c);
 
-	echo '<br><br>其中 : ';
-	echo ' <br>备用金：' . $a3t . ' <br>银行卡： ' . $a4t;
+	// echo '<br><br>其中 : ';
+	// echo ' <br>备用金：' . $a3t . ' <br>银行卡： ' . $a4t;
 
-	echo '<br><br>总计 : ' . ($a3t + $a4t);	
+	// echo '<br><br>总计 : ' . ($a3t + $a4t);	
 	// echo '<br>';
 
 	// echo '<br>总计';
