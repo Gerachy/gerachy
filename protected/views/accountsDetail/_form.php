@@ -87,20 +87,25 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 		<?php echo $form->textField($model,'summary',array('size'=>20,'maxlength'=>64)); ?>
 		<?php echo $form->error($model,'summary'); ?>
 		<div class="option">
-			<span class="summary">交易收入</span>
+			<!-- <span class="summary">交易收入</span>
 			<span class="summary">交易支出</span>	
 			<span class="summary">发放工资</span>
 			<span class="summary">收入工资</span>
-			<span class="summary">支出备用金</span>
-			<span class="summary">收入备用金</span>
-			<span class="summary">缴税</span>						
+			<span class="summary">缴税</span>	-->
+			<!-- <span class="summary">银行服务费</span>					
+			<span class="summary">银行结息</span> -->
+			<span class="summary">交物业费</span>
+			<span class="summary">交空调费</span>
+			<span class="summary">交电费</span>
+			<span class="summary">交水费</span>
+			<span class="summary">交中水费</span>
+			<span class="summary">交网费</span>
 			<br><br>
-			<span class="summary">银行服务费</span>					
-			<span class="summary">银行结息</span>
 			<span class="summary">招待费</span>
 			<span class="summary">差旅费</span>
-
-
+			<span class="summary">支出备用金</span>
+			<span class="summary">收入备用金</span>
+			<br><br>
 		</div>		
 		<script>
 			$(".summary").on("click",function(){$("#AccountsDetail_summary").attr("value",$(this).text())});
@@ -124,15 +129,16 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 		<?php echo $form->textField($model,'credit_cat'); ?>
 		<?php echo $form->error($model,'credit_cat'); ?>
 		<div class="option">
-			<span value="11" class="credit_cat">11 : 商品成本</span>			
 			<span value="1" class="credit_cat">1 : 工资</span>
-			<span value="2" class="credit_cat">2 : 备用金</span>
-			<span value="11" class="credit_cat">12 : 实时缴税</span>			
+			<!-- <span value="2" class="credit_cat">2 : 备用金</span>
+			<span value="11" class="credit_cat">11 : 商品成本</span>			
+			<span value="12" class="credit_cat">12 : 实时缴税</span> -->
 			<br><br>
 			<span value="3" class="credit_cat">3 : 固定性经营支出</span>
 			<span value="4" class="credit_cat">4 : 消耗性经营支出</span>
 			<span value="5" class="credit_cat">5 : 招待费</span>
 			<span value="6" class="credit_cat">6 : 差旅费</span>
+			<br><br>
 			<span value="1000" class="credit_cat">1000 : 其他</span>
 		</div>		
 		<script>
