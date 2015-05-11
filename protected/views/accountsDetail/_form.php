@@ -100,6 +100,8 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 			<span class="summary">交水费</span>
 			<span class="summary">交中水费</span>
 			<span class="summary">交网费</span>
+			<span class="summary">交记账费费</span>
+			
 			<br><br>
 			<span class="summary">招待费</span>
 			<span class="summary">差旅费</span>
@@ -154,7 +156,6 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 			<span class="desc">济宁博克机械有限公司</span>			
 			<span class="desc">北京义傲思程贸易有限公司</span>
 			<span class="desc">马千里<?php echo date("Y/m"); ?></span>
-			<span class="desc">王晓光<?php echo date("Y/m"); ?></span>
 			<span class="desc">薛雪</span>
 			<span class="desc">DST</span>			
 		</div>		
