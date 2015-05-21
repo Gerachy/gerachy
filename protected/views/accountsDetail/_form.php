@@ -101,6 +101,7 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 			<span class="summary">交中水费</span>
 			<span class="summary">交网费</span>
 			<span class="summary">交记账费费</span>
+			<span class="summary">社会保险数字证书费</span>
 			
 			<br><br>
 			<span class="summary">招待费</span>
