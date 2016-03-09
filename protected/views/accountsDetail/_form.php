@@ -102,6 +102,7 @@ label {display: block; width: 75px; float: left; margin-right: 10px;}
 			<span class="summary">交网费</span>
 			<span class="summary">交记账费费</span>
 			<br><br>			
+			<span class="summary">交增值税</span>
 
 			<span class="summary">交社会保险数字证书费</span>
 			<span class="summary">交国税usb-key费</span>
